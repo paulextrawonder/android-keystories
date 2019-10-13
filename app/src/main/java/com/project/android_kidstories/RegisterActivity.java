@@ -48,10 +48,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "AndroidClarified";
 
-
-
-
-
     private CallbackManager callbackManager;
 
 
@@ -60,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText fullName;
     EditText password, confirmPassword;
     Button regFacebook, regGoogle, SignUp;
+    TextView signIn;
     ProgressBar progressBar;
 
 
@@ -72,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
         fullName = findViewById(R.id.reg_full_name);
         emailET = findViewById(R.id.reg_email);
         confirmPassword = findViewById(R.id.reg_confirm_password);
+        signIn = findViewById(R.id.sign_in);
 
         regFacebook = findViewById(R.id.reg_facebook);
         regGoogle = findViewById(R.id.reg_google);
@@ -81,6 +79,14 @@ public class RegisterActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
 
         checkLoginStatus();
+
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LoginScreen = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(LoginScreen);
+            }
+        });
 
 
     }

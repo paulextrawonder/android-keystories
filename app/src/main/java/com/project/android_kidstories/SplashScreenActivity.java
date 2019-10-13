@@ -16,8 +16,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                Intent LoginScreen = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(LoginScreen);
                 finish();
             }
             //the delay time is 3s

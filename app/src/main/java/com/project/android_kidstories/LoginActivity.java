@@ -12,6 +12,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText email;
     EditText password;
     Button btn;
+    TextView creatAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.et_email);
         password = findViewById(R.id.et_password);
         btn = findViewById(R.id.login_button);
+        creatAccount = findViewById(R.id.create_account);
 
         googleSignInButton = findViewById(R.id.google_auth_button);
 
@@ -62,7 +65,19 @@ public class LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 loginUser();
+
+            Intent ToMainActivity = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(ToMainActivity);
+            }
+        });
+
+        creatAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent RegisterScreen = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(RegisterScreen);
             }
         });
 
